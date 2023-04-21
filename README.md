@@ -1,1 +1,1 @@
-"# EU4-Battle-Simulator" 
+"EU4-Battle-Simulator" 
