@@ -2,7 +2,7 @@ from technology import Technology
 
 
 class Infantry:#(Technology):
-    def __init__(self,combat_ability,num):
+    def __init__(self,combat_ability,num,morale):
         #super().__init__(num)
         self.strength = 1000
         self.combat_ability = combat_ability
@@ -12,9 +12,11 @@ class Infantry:#(Technology):
         self.def_shock = 3 + Technology(num).inf_shock
         self.off_morale = 4
         self.def_morale = 4
+        self.morale = morale
+        self.tactics = Technology(num).tactics
         
 class Cavalry:#(Technology):
-    def __init__(self,combat_ability,num):
+    def __init__(self,combat_ability,num,morale):
         #super().__init__(num)
         self.strength = 1000
         self.combat_ability = combat_ability
@@ -24,9 +26,12 @@ class Cavalry:#(Technology):
         self.def_shock = 4 + Technology(num).cav_shock
         self.off_morale = 3
         self.def_morale = 4
+        self.morale = morale
+        self.tactics = Technology(num).tactics
+
       
 class Artillery:#(Technology):
-    def __init__(self,combat_ability,num):
+    def __init__(self,combat_ability,num,morale):
         #super().__init__(num)
         self.strength = 1000
         self.combat_ability = combat_ability
@@ -36,4 +41,7 @@ class Artillery:#(Technology):
         self.def_shock = 1 + Technology(num).art_shock
         self.off_morale = 5
         self.def_morale=2
+        self.morale = morale
+        self.tactics = Technology(num).tactics
+
                         
