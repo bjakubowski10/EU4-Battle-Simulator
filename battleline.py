@@ -8,10 +8,10 @@ class Army:
     #backline = list()
     
     
-    def __init__(self,inf_amount : int, inf_combat, cav_combat, art_combat, cav_amount : int,art_amount : int,tech,morale):
-        self.inf_list = UnitFactory.inf_factory(inf_amount,inf_combat,tech,morale)
-        self.cav_list = UnitFactory.cav_factory(cav_amount,cav_combat,tech,morale)
-        self.art_list = UnitFactory.art_factory(art_amount,art_combat,tech,morale)
+    def __init__(self,inf_amount : int, inf_combat, cav_combat, art_combat, cav_amount : int,art_amount : int,tech,morale,unit_nameinf,unit_namecav,unit_nameart):
+        self.inf_list = UnitFactory.inf_factory(inf_amount,inf_combat,tech,morale,unit_nameinf)
+        self.cav_list = UnitFactory.cav_factory(cav_amount,cav_combat,tech,morale,unit_namecav)
+        self.art_list = UnitFactory.art_factory(art_amount,art_combat,tech,morale,unit_nameart)
         
         self.total_army = self.inf_list + self.cav_list + self.art_list
         self.reserves = list()
@@ -161,14 +161,7 @@ class Army:
                     cav_count -=1        
         
         self.reserves = self.inf_list + self.cav_list + self.art_list            
-        print('front',len(self.frontline))
-        print('back',len(self.backline))            
-        print('infcount',inf_count)
-        print('inflist',len(self.inf_list))
-        print('cavcount',cav_count)
-        print('cavlist',len(self.cav_list))
-        print('artcount',art_count)
-        print('artlist',len(self.art_list))
+        
         print('total',len(self.reserves))                                 
                             
                         
@@ -187,6 +180,9 @@ class Army:
         for i in range(len(self.frontline)):
             army_size += self.frontline[i].strength
             total_morale += self.frontline[i].morale
+        for i in range(len(self.backline)):
+            army_size += self.backline[i].strength
+            total_morale += self.backline[i].morale
         return army_size,total_morale                        
                     
                 
